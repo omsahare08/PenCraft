@@ -1,5 +1,5 @@
 
-# PenCraft — AI Grammar & Spell Corrector
+# PenCraft - AI Grammar & Spell Corrector
 
 A professional Chrome extension that instantly corrects spelling and grammar for any selected text on any webpage, powered by Google Gemini AI (free tier — no credit card required).
 

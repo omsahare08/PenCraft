@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PenCraft</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="app">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-left">
+        <div class="logo-mark">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="url(#lg1)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <defs>
+              <linearGradient id="lg1" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#c4b5fd"/>
+                <stop offset="1" stop-color="#818cf8"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="brand">
+          <h1 class="brand-name">PenCraft</h1>
+          <span class="brand-tag">Gemini Free</span>
+        </div>
+      </div>
+      <button class="settings-btn" id="settingsBtn" title="Settings">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+          <circle cx="12" cy="12" r="3"/>
+          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+        </svg>
+      </button>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav">
+      <button class="nav-btn active" data-tab="manual">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+        Correct
+      </button>
+      <button class="nav-btn" data-tab="history">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        History
+      </button>
+      <button class="nav-btn" data-tab="stats">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        Stats
+      </button>
+    </nav>
+
+    <!-- Manual Tab -->
+    <div class="tab-content active" id="tab-manual">
+      <div class="input-section">
+        <div class="section-label">
+          <span>Input Text</span>
+          <button class="clear-btn" id="clearInput">Clear</button>
+        </div>
+        <textarea class="text-input" id="inputText" placeholder="Paste or type text to correct..."></textarea>
+        
+        <div class="mode-grid">
+          <button class="mode-chip active" data-mode="standard">
+            <span class="mode-icon">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+            </span>
+            Standard
+          </button>
+          <button class="mode-chip" data-mode="formal">
+            <span class="mode-icon">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </span>
+            Formal
+          </button>
+          <button class="mode-chip" data-mode="concise">
+            <span class="mode-icon">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </span>
+            Concise
+          </button>
+          <button class="mode-chip" data-mode="explain">
+            <span class="mode-icon">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            </span>
+            Explain
+          </button>
+        </div>
+
+        <button class="correct-btn" id="correctBtn">
+          <span id="correctBtnText">Correct Text</span>
+          <div class="btn-spinner" id="btnSpinner" style="display:none;"></div>
+        </button>
+      </div>
+
+      <div class="result-section" id="resultSection" style="display:none;">
+        <div class="section-label">
+          <span>Result</span>
+          <div class="result-actions-mini">
+            <button class="icon-btn" id="copyResult" title="Copy">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="result-display" id="resultDisplay"></div>
+        <div class="changes-display" id="changesDisplay" style="display:none;"></div>
+        <div class="char-stats" id="charStats"></div>
+      </div>
+    </div>
+
+    <!-- History Tab -->
+    <div class="tab-content" id="tab-history">
+      <div class="history-header">
+        <span class="history-count" id="historyCount">0 corrections</span>
+        <div class="history-controls">
+          <input type="text" class="search-input" id="historySearch" placeholder="Search history...">
+          <button class="danger-btn" id="clearHistory">Clear all</button>
+        </div>
+      </div>
+      <div class="history-list" id="historyList">
+        <div class="empty-state">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <p>No history yet</p>
+          <span>Corrections will appear here</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats Tab -->
+    <div class="tab-content" id="tab-stats">
+      <div class="stats-grid">
+        <div class="stat-card" id="stat-total">
+          <div class="stat-value" id="stats-total">0</div>
+          <div class="stat-label">Total Corrections</div>
+        </div>
+        <div class="stat-card" id="stat-today">
+          <div class="stat-value" id="stats-today">0</div>
+          <div class="stat-label">Today</div>
+        </div>
+        <div class="stat-card wide" id="stat-chars">
+          <div class="stat-value" id="stats-chars">0</div>
+          <div class="stat-label">Characters Corrected</div>
+        </div>
+      </div>
+
+      <div class="modes-breakdown">
+        <div class="section-label"><span>Mode Usage</span></div>
+        <div class="mode-bars" id="modeBars"></div>
+      </div>
+
+      <div class="domains-section">
+        <div class="section-label"><span>Top Domains</span></div>
+        <div class="domain-list" id="domainList"></div>
+      </div>
+    </div>
+
+    <!-- Settings Panel -->
+    <div class="settings-panel" id="settingsPanel" style="display:none;">
+      <div class="settings-header">
+        <h2>Settings</h2>
+        <button class="settings-close" id="settingsClose">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div class="settings-body">
+        <div class="settings-group">
+          <label class="settings-label">Google Gemini API Key</label>
+          <div class="api-key-input-wrap">
+            <input type="password" class="settings-input" id="apiKeyInput" placeholder="AIza...">
+            <button class="toggle-visibility" id="toggleApiKey">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" id="eyeIcon"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            </button>
+          </div>
+          <p class="settings-hint">Free API key from Google AI Studio. No credit card required. Stored locally, never shared.</p>
+          <div class="free-key-steps">
+            <div class="step"><span class="step-num">1</span>Go to <a class="settings-link" href="https://aistudio.google.com/app/apikey" target="_blank">aistudio.google.com/app/apikey</a></div>
+            <div class="step"><span class="step-num">2</span>Sign in with your Google account</div>
+            <div class="step"><span class="step-num">3</span>Click "Create API key" and copy it</div>
+            <div class="step"><span class="step-num">4</span>Paste it above and click Save</div>
+          </div>
+        </div>
+        <button class="save-settings-btn" id="saveSettings">Save Settings</button>
+        <div class="save-feedback" id="saveFeedback" style="display:none;"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
